@@ -1,0 +1,458 @@
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-VariableFont.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter";
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  background: linear-gradient(to left, #c4ffde, #c4ffde, #c4ffde, #d4f1fd);
+}
+
+body:has(#upload.active) {
+  background: linear-gradient(to right, #e0f7fa, #d0fce2);
+}
+
+body:has(.active) .component,
+body:has(#settings-tab.current-tab) .component,
+body:has(#help-tab.current-tab) .component{
+  display: none;
+}
+
+body:has(#dash-tab.current-tab):has(#home-tab.active) .analysis-component {
+  display: block;
+}
+
+body:has(#dash-tab.current-tab):has(#upload-tab.active) .upload-component {
+  display: block;
+}
+
+body:has(#settings-tab.current-tab) .settings-component {
+  display: block;
+}
+
+body:has(#help-tab.current-tab) .help-component {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+}
+
+/* App */
+.app {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.app > * {
+  flex: 1;
+}
+
+/* Side Bar */
+.sidebar {
+  flex: 0 0 201px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.45rem;
+
+  background: linear-gradient(#0066cc, #00bfff);
+  color: #ffffff;
+  padding: 1.75rem;
+}
+
+.logo img {
+  margin: 0 auto;
+  padding: 0 0.7rem;
+  padding-top: 0.05rem;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.sidebar ul li {
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background: #ffffff41;
+}
+
+.sidebar ul li.current-tab {
+  background: #ffffff;
+  color: #004a99;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+/* Dashboard */
+.dashboard {
+  overflow-y: auto;
+}
+/* Menu Bar */
+.menu-bar {
+  display: flex;
+  padding: 1rem 1.5rem;
+}
+
+.menu-header {
+  display: none;
+}
+
+.menu-bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.menu-bar ul li {
+  font-family: "Inter";
+  flex: 0 0 auto;
+
+  padding: 0.5rem 1.41rem;
+  border-radius: 0.8rem;
+
+  background: #d1d5db;
+}
+
+.menu-bar ul li:hover {
+  background-color: #004a99d7;
+  color: #ffffff;
+}
+
+body:has(#dash-tab.current-tab) .menu-bar ul li.active {
+  background-color: #004a99;
+  color: white;
+  font-weight: 700;
+}
+
+.menu-bar ul li:first-of-type {
+  font-family: "Roboto";
+}
+
+/* Analysis Component */
+.analysis-component {
+  display: none;
+}
+
+.analysis-component.active {
+  display: block;
+}
+
+.analysis-component-title {
+  padding: 1rem 1.8rem;
+  padding-bottom: 0.5rem;
+}
+
+.analysis-component-title h1 {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 700;
+  font-family: "Roboto";
+}
+
+.analysis-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6.495rem;
+  padding: 1rem;
+
+  background: #ffffff;
+  margin-inline: 1.5rem 1.75rem;
+  border-radius: 0.8rem;
+}
+
+.analysis-wrapper > * {
+  flex: 1 0 150px;
+}
+
+.analysis-cgpa,
+.analysis-grade {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.analysis-cgpa h2,
+.analysis-grade h2 {
+  font-size: 1rem;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.results-wrapper .result-item {
+  flex: 1 0 auto;
+  background: #ffe5e5;
+  font-size: 1rem;
+  padding: 1rem;
+  border-left: 4px solid #ff0000;
+  border-start-end-radius: 0.6rem;
+  border-end-end-radius: 0.6rem;
+}
+
+.results-wrapper .result-item p {
+  min-width: max-content;
+  line-height: 1.5;
+}
+
+/* Upload Component */
+.upload-component {
+  margin: 1.6rem 1.75rem 1rem 1.5rem;
+  padding: 1.4rem 2.5rem 1.5rem 2.5rem;
+
+  background: #ffffff;
+  border-radius: 0.8rem;
+  box-shadow: 1px 1px 5px #7e7c7c52;
+}
+
+.upload-component.active {
+  display: block;
+}
+
+.upload-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.upload-form label {
+  font-size: 1.25rem;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+.upload-form input[type="file"] {
+  display: block;
+  width: 100%;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 0.24rem 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.upload-form input::file-selector-button {
+  border-radius: 4px;
+  line-height: 1.4;
+  letter-spacing: unset;
+  padding: 0.5rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.8);
+  color: rgb(55, 65, 81);
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+}
+
+.upload-form button {
+  background: #004a99;
+  color: white;
+  font-size: 1rem;
+  font-family: "Inter";
+  font-weight: 300;
+  padding-block: 0.63rem;
+  border: 0;
+  border-radius: 0.4rem;
+}
+
+/* Query Component */
+
+/* Records Component */
+
+/* Settings Component */
+.settings-component {
+  margin: 1.47rem 1.5rem 1.47rem 1.2rem;
+  padding: 1.4rem 2.5rem 1.5rem 2.84rem;
+
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 5px #7e7c7c52;
+}
+
+.settings-form {
+  display: grid;
+  gap: 1.36rem;
+}
+
+.settings-form h2{
+  font-size: 1.25rem;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+.settings-form > div{
+  display: grid;
+  gap: 0.32rem;
+}
+
+.settings-form label{
+   font-weight: 700;
+}
+
+.settings-form input{
+   border: 1px solid #E5E7EB;
+   border-radius: 0.5rem;
+   padding: 0.79rem 0.5rem;
+}
+
+.settings-form input::placeholder{
+  font-family: "Inter";
+  font-size: 1rem;
+  color: #B2B2B2;
+}
+
+.settings-form button {
+  max-width: 305px;
+  background: #004a99;
+  color: white;
+  font-size: 1rem;
+  font-family: "Inter";
+  font-weight: 300;
+  padding-block: 0.63rem;
+  border: 0;
+  border-radius: 0.4rem;
+}
+
+
+/* Help Component */
+.help-component {
+  margin: 1.47rem 1.5rem 1.47rem 1.2rem;
+  padding: 1.4rem 2.5rem 1.5rem 2.84rem;
+
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 5px #7e7c7c52;
+}
+
+.help-wrapper{
+  display: grid;
+  gap: 1rem;
+} 
+
+.help-wrapper .question,
+.help-wrapper .answer{
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+
+.help-wrapper .question {
+  margin-bottom: 0.55rem;
+}
+
+.help-wrapper .answer span {
+  font-weight: 500;
+  /* line-break: 50; */
+}
+
+/* For tablets and mobile screens */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1;
+
+    height: 100%;
+    transform: translate(-100%, 0);
+    width: 210px;
+    transition: 250ms ease-out;
+  }
+
+  .sidebar.show {
+    transform: translate(0, 0);
+  }
+
+  .menu-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 0;
+    display: grid;
+  }
+  .menu-header {
+    padding: 1rem;
+    background: #0066cc;
+  }
+
+  .menu-bar ul {
+    /* display: none; */
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    gap: 0.4rem;
+    padding: 1rem;
+    background: linear-gradient(#d4f1fd, #c4ffde);
+  }
+
+  .menu-bar ul {
+    overflow: auto; /* Ensures scrolling is enabled if content overflows */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .menu-bar ul::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-bar ul li {
+    flex: 0 0 auto;
+    padding-inline: 1rem;
+    text-align: center;
+  }
+
+  .analysis-component {
+    padding-bottom: 1rem;
+  }
+
+  .analysis-wrapper {
+    margin-inline: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .results-wrapper .result-item p {
+    min-width: auto;
+  }
+
+  .answer {
+    line-height: 1.4;
+  }
+}

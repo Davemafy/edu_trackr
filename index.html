@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edutrackr</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon1.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <img src="images/logo.png" style="max-width: 118px" alt="" />
+        </div>
+        <ul id="sideNav" role="navigation">
+          <li id="dash-tab" class="current-tab">Dashboard</li>
+          <li id="settings-tab">Settings</li>
+          <li id="help-tab">Help & FAQ</li>
+        </ul>
+      </aside>
+      <main class="dashboard">
+        <!-- Menubar -->
+        <nav class="menu-bar">
+          <div class="menu-header">
+            <div class="logo">
+              <img src="images/logo.png" style="max-width: 118px" alt="Logo" />
+            </div>
+
+            <svg
+              id="hamburgerBtn"
+              width="2.5rem"
+              height="2.5rem"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" />
+              <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" />
+              <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" />
+            </svg>
+          </div>
+          <ul id="menuNav" role="navigation">
+            <li id="home-tab" class="active">Home</li>
+            <li id="upload-tab">Upload CSV</li>
+            <li id="query-tab">Student Query</li>
+            <li id="record-tab">All Records</li>
+          </ul>
+        </nav>
+
+        <!-- Analysis Component -->
+        <div class="analysis-component component">
+          <div class="analysis-component-title">
+            <h1>Students at Risk</h1>
+          </div>
+          <div class="analysis-wrapper">
+            <div class="analysis-cgpa">
+              <h2 class="analysis-title">CGPA Below 2.0</h2>
+              <div class="results-wrapper">
+                <div class="result-item">
+                  <p>STU002 - Emeka Obi - CGPA: 1.95</p>
+                </div>
+                <div class="result-item">
+                  <p>STU007 - John Doe - CGPA: 1.85</p>
+                </div>
+                <div class="result-item">
+                  <p>STU007 - John Doe - CGPA: 1.85</p>
+                </div>
+                <div class="result-item">
+                  <p>STU007 - John Doe - CGPA: 1.85</p>
+                </div>
+                <div class="result-item">
+                  <p>STU007 - John Doe - CGPA: 1.85</p>
+                </div>
+                <div class="result-item">
+                  <p>STU007 - John Doe - CGPA: 1.85</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="analysis-grade">
+              <h2 class="analysis-title">Students with F Grades</h2>
+              <div class="results-wrapper">
+                <div class="result-item">
+                  <p>STU005 - Sarah James - F in PHY203</p>
+                </div>
+                <div class="result-item">
+                  <p>STU010 - Jane Smith - F in MAT101</p>
+                </div>
+                <div class="result-item">
+                  <p>STU010 - Jane Smith - F in MAT101</p>
+                </div>
+                <div class="result-item">
+                  <p>STU010 - Jane Smith - F in MAT101</p>
+                </div>
+                <div class="result-item">
+                  <p>STU010 - Jane Smith - F in MAT101</p>
+                </div>
+                <div class="result-item">
+                  <p>STU010 - Jane Smith - F in MAT101</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upload Component -->
+        <div class="upload-component component">
+          <form action="" method="post"  class="upload-form">
+            <label>Upload Student  CSV</label>
+            <input type="file" id="csvFile" accept=".csv">
+            <button id="previewBtn">Preview</button>
+          </form>
+          <div id="csvTableContainer"></div>
+        </div>
+
+        <!-- Settings Component -->
+         <div class="settings-component component">
+            <form action="" method="post" class="settings-form">
+              <h2>Admin Settings</h2>
+              <div>
+                <label for="admin-name">Full Name</label>
+                <input type="text" placeholder="Enter full name" id="admin-name" required>
+              </div>
+              <div>
+                <label for="admin-email">Email</label>
+                <input type="text" placeholder="Enter email address" id="admin-email" required>
+              </div>
+              <div>
+                <label for="admin-phone">Phone Number</label>
+                <input type="text" placeholder="Enter phone number" id="admin-phone" required>
+              </div>
+              <div>
+                <label for="admin-school">Organization/School</label>
+                <input type="text" placeholder="Enter school name" id="admin-school" required>
+              </div>
+              <div>
+                <label for="admin-password-new">New Password</label>
+                <input type="text" placeholder="Enter new password" id="admin-password-new" required>
+              </div>
+              <div>
+                <label for="admin-password-confirm">Confirm Password</label>
+                <input type="text" placeholder="Confirm new password" id="admin-password-confirm" required>
+              </div>
+              <button type="submit">Save Settings</button>
+            </form>
+         </div>
+
+        <!-- Help Component -->
+         <div class="help-component component">
+          <div class="help-wrapper">
+            <h2>Help & Faq</h2>
+            <div>
+              <h3 class="question">🟠 Question: How do I upload student data?</h3>
+              <p class="answer"><span>Answer:</span> Go to the 'Upload CSV' tab, choose your .csv file, and click Preview. Make sure the file follows the correct format: <br> Student ID, Name, CGPA, Courses and Grades.</p>
+            </div>
+            <div>
+              <h3 class="question">🟠 Question: What if my CSV file is not loading?</h3>
+              <p class="answer"><span>Answer:</span> Ensure it is a .csv file and that each line is properly formatted. Avoid special characters or extra commas in data.</p>
+            </div>
+            <div>
+              <h3 class="question">🟠 Question: How do I check a student’s performance?</h3>
+              <p class="answer"><span>Answer:</span> Use the Student Query tab to search by Student ID. You’ll see their CGPA and any failing courses listed.</p>
+            </div>
+            <div>
+              <h3 class="question">🟠 Question: Can I edit student data after uploading?</h3>
+              <p class="answer"><span>Answer:</span> Not currently. Please upload a new corrected file to replace existing data.</p>
+            </div>
+            <div>
+              <h3 class="question">🟠 Question: Who do I contact for support?</h3>
+              <p class="answer"><span>Answer:</span> Email our support team at support@edutrackr.com</p>
+            </div>
+          </div>
+         </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
